@@ -1,0 +1,51 @@
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+class Entity
+{
+public:
+  Entity(std::string name, std::uint32_t id)
+  : m_name(name), m_id(id)
+  {
+  }
+
+static std::string findEntityNameByProvidingId(std::vector<Entity>& en, std::uint32_t IdToFind)
+{
+  auto found = std::find_if(en.begin(), en.end(), [IdToFind](Entity e){
+    return (IdToFind == e.m_id);
+  }
+  ) ; 
+  
+  if(found != en.end())
+  {
+    return (*found).m_name;  
+  }
+  else
+  {
+    return "";
+  }
+}
+
+private:
+  std::string m_name;
+  std::uint32_t m_id;
+};
+
+int main() 
+{
+  std::vector<Entity> test;
+  
+  Entity en1("en1", 1);
+  test.push_back(en1);
+  Entity en2("en2", 2);
+  test.push_back(en2);
+  Entity en3("en3", 3);
+  test.push_back(en3);
+
+  std::string result = Entity::findEntityNameByProvidingId(test, 3);
+  std::cout << "result: " << result;
+  
+  return 0;
+}
