@@ -8,7 +8,7 @@ public:
     std::cout << "c-tor" << std::endl;
   }
   
-  void func(int& x)
+  void func(int& x) //void func(const int& x) works for both lvalue and rvalue
   {
     std::cout << "func with arg Lvalue " << x << std::endl;
   }
