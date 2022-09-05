@@ -17,6 +17,7 @@ int main()
     //std::cout << (*it).first << ' ' << (*it).second << "; ";
     std::cout << it->first << ' ' << it->second << "; ";
   }
+  std::cout << std::endl; 
   //---------------------------------------------------------------------------------------- 
   // range-based for loop from C++17
   for(auto& [key, value] : test)
