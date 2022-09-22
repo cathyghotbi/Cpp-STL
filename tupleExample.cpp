@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <tuple>
 
@@ -10,7 +9,7 @@ public:
     {
     }
    
-  bool operator<(Person& otherPerson)  
+  bool operator<(const Person& otherPerson)  
   {
     return std::make_tuple(m_hour, m_minute, m_second) < 
            std::make_tuple(otherPerson.m_hour, otherPerson.m_minute, otherPerson.m_second);
